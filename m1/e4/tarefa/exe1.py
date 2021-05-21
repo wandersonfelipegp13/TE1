@@ -23,16 +23,18 @@ csm = int(input("Consumo (kWh): "))
 typ = input(" [R] Residências\n [I] Indústrias \n [C] Comércios\nInstalação: ")
 if typ == 'R':
     if csm > 500:
-        print("Preço = R$ 0,65")
+        csm = csm * 0.65
     else:
-        print("Preço = R$ 0,40")
+        csm = csm * 0.40
 elif typ == 'I':
     if csm > 5000:
-        print("Preço = R$ 0,60")
+        csm = csm * 0.60
     else:
-        print("Preço = R$ 0,55")
+        csm = csm * 0.55
 else:
     if csm > 1000:
-        print("Preço = R$ 0,60")
+        csm = csm * 0.60
     else:
-        print("Preço = R$ 0,55")
+        csm = csm * 0.55
+
+print("Preço = R$ %.2f" % csm)
