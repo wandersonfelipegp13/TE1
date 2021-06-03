@@ -116,9 +116,18 @@ def printPlan(plan):
         return txt
 
 
+def report(maior, menor):
+    with open("files/arquivo3.txt", "w") as a:
+        txt = ", ".join(maior)
+        a.write(txt + "\n")
+        txt = ", ".join(menor)
+        a.write(txt + "\n")
+
+
 leArq()
 print("Maiores de 60: ", maior60(), "\n")
 print("da Silva: ", daSilva(), "\n")
 print("Reajuste: ", mais11(), "\n")
+report(medias()[0], medias()[2])
 print(f"Maior media = {medias()[1]} do plano:\n{printPlan(medias()[0])}")
 print(f"Menor media = {medias()[3]} do plano:\n{printPlan(medias()[2])}")
