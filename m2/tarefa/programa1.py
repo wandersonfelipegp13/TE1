@@ -26,7 +26,7 @@ def continua(s):
 def grava():
     arq = open("files/arquivo1.txt", "a")
     for c in dados:
-        txt = ",".join(c)
+        txt = ", ".join(c)
         arq.write(txt + "\n")
     arq.close()
 
