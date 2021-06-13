@@ -117,13 +117,13 @@ def printPlan(plan):
 
 
 def report(maior, menor):
+    
+
     with open("files/arquivo3.txt", "w") as a:
         txt = ", ".join(maior)
         a.write(txt + "\n")
         txt = ", ".join(menor)
         a.write(txt + "\n")
-
-
 leArq()
 print("Maiores de 60: ", maior60(), "\n")
 print("da Silva: ", daSilva(), "\n")
