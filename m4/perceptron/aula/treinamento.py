@@ -1,6 +1,6 @@
 import numpy as np
 # Define o número de épocas da simulação e o número de atributos
-numEpocas = 10000
+numEpocas = 100000
 numAmostras = 6
 # Atributos
 peso = np.array([113, 122, 107, 98, 115, 120])
