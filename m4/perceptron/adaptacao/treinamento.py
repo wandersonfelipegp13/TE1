@@ -1,7 +1,7 @@
 import random
 import numpy as np
 # Define o número de épocas da simulação e o número de atributos
-numEpocas = 0
+numEpocas = 10000
 numAmostras = 30
 # bias
 bias = 1
@@ -34,10 +34,7 @@ for c in range((len(X) + 1)):
 print("w(s) gerados aleatoriamente: ", end="")
 print(W)
 
-erro = True
-# for j in range(numEpocas):
-while erro or numEpocas > 10000:
-    erro = False
+for j in range(numEpocas):
     for k in range(numAmostras):
         # Insere o bias no vetor de entrada.
         Xb = np.hstack((bias, X[:, k]))
@@ -47,14 +44,9 @@ while erro or numEpocas > 10000:
         Yr = np.sign(V)
         # Calcula o erro: e = (Y - Yr)
         e[k] = Y[k] - Yr
-        if Y[k] != Yr:
-            erro = True
-            # Treinando a rede.
-            W = W + eta * e[k] * Xb
-            numEpocas = numEpocas + 1
-            break
+        # Treinando a rede.
+        W = W + eta * e[k] * Xb
 
 print("w(s) após execução: ", end="")
 print(W)
 print("Vetor de errors (e) = " + str(e))
-print("Épocas: ", numEpocas)
