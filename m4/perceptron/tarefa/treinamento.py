@@ -57,4 +57,4 @@ while erro or numEpocas > 10000:
 print("w(s) após execução: ", end="")
 print(W)
 print("Vetor de errors (e) = " + str(e))
-print("Épocas: ", numEpocas)
+print(f"Épocas: {numEpocas}")
