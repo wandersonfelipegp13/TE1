@@ -16,9 +16,6 @@ for i in range(linha):
 
 X = np.delete(X, 3, 1)  # removo o 'd'
 
-print(X)
-print(Y)
-
 numEpocas = 0
 numAmostras = len(X)
 bias = 1

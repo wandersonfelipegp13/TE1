@@ -1,23 +1,23 @@
 import numpy as np
+import pandas as pd
 
-w = [2.87558617, 1.41430368, 2.38864992, -0.67117034]
+w = [5.0731487, 2.83471835, 4.92232042, -1.26608212]
 bias = 1
 
-# x = [-0.3665, 0.0620, 5.9891]
-x = [-0.7842, 1.1267, 5.5912]
+df = pd.read_csv("files/Tabela-Amostras-para-validar_RNA_M4_3.6.csv")
+x = np.asarray(df)
 
-x = np.hstack((bias, x))
-print(x)
+for i in range(len(x)):
+    xb = np.hstack((bias, x[i]))
+    u = 0
 
-u = 0
+    yr = 0
+    for j in range(len(w)):
+        u = u + w[j] * xb[j]
 
-yr = 0
-for j in range(len(w)):
-    u = u + w[j] * x[j]
+    yr = np.sign(u)
 
-yr = np.sign(u)
-
-if yr == -1.0:
-    print("P1")
-else:
-    print("P2")
+    if yr == -1.0:
+        print("P1")
+    else:
+        print("P2")
