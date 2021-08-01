@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-w = [5.0731487, 2.83471835, 4.92232042, -1.26608212]
+w = [5.11233131, 2.8340889, 4.93277417, -1.27227181]
 bias = 1
 
 df = pd.read_csv("files/Tabela-Amostras-para-validar_RNA_M4_3.6.csv")
