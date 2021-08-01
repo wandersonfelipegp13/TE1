@@ -2,7 +2,7 @@
 
 Na Tarefa do Módulo 4, foi implementada uma rede Perceptron de uma camada e um neurônio para classificar amostras de petróleo.
 
-* [ ] Apresente o código em Python para resolver o mesmo problema com a rede Perceptron Multicamadas (MLP) disponível na biblioteca Scikit Learn.
+* [x] Apresente o código em Python para resolver o mesmo problema com a rede Perceptron Multicamadas (MLP) disponível na biblioteca Scikit Learn.
 
 * [ ] Treine a rede com os dados de treinamento e taxas de aprendizagem:
     * [ ] 0,1
