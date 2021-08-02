@@ -16,4 +16,4 @@ Na Tarefa do Módulo 4, foi implementada uma rede Perceptron de uma camada e um 
 
 * [x] Analise a razão das diferenças nos valores das quantidades de épocas e nos gráficos do erro.
 
-* [ ] Anexar como resposta o seu relatório e o código Python.
+* [x] Anexar como resposta o seu relatório e o código Python.
