@@ -8,5 +8,66 @@ Original file is located at
 """
 
 from sklearn.datasets import load_wine
+import matplotlib.pyplot as plt
+
 wine = load_wine()
-print(wine)
+y = wine.target
+
+# splitting into train and test datasets
+from sklearn.model_selection import train_test_split
+# datasets = train_test_split(wine.data, wine.target, test_size=0.2, random_state=1, stratify=y)
+datasets = train_test_split(wine.data, wine.target, test_size=0.2)
+train_data, test_data, train_labels, test_labels = datasets
+
+# scaling the data
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+
+# we fit the train data
+scaler.fit(train_data)
+
+# scaling the train data
+train_data = scaler.transform(train_data)
+test_data = scaler.transform(test_data)
+
+# Training the Model
+from sklearn.neural_network import MLPClassifier
+
+mlp = MLPClassifier(hidden_layer_sizes=(10, 5), max_iter=10000, learning_rate_init=0.01)
+
+# let's fit the training data to our model
+mlp.fit(train_data, train_labels)
+
+print('Número de épocas: ', mlp.n_iter_)
+print('Taxa de aprendizagem: ', mlp.alpha)
+
+# mlp.loss curve
+
+print(len(mlp.loss_curve_))
+x = list(range(0, len(mlp.loss_curve_)))
+y = mlp.loss_curve_
+plt.xlabel('Época')
+plt.ylabel('Erro')
+plt.plot(x, y)
+plt.show()
+
+# accuracy
+
+from sklearn.metrics import accuracy_score
+
+predictions_train = mlp.predict(train_data)
+print(accuracy_score(predictions_train, train_labels))
+predictions_test = mlp.predict(test_data)
+print(accuracy_score(predictions_test, test_labels))
+
+from sklearn.metrics import confusion_matrix
+
+conf_treino = confusion_matrix(predictions_train, train_labels)
+print(conf_treino)
+
+conf_test = confusion_matrix(predictions_test, test_labels)
+print(conf_test)
+
+from sklearn.metrics import classification_report
+
+print(classification_report(predictions_test, test_labels))
