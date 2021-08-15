@@ -39,7 +39,7 @@ mlp = MLPClassifier(hidden_layer_sizes=(10, 5), max_iter=10000, learning_rate_in
 mlp.fit(train_data, train_labels)
 
 print('Número de épocas: ', mlp.n_iter_)
-print('Taxa de aprendizagem: ', mlp.alpha)
+# print('Taxa de aprendizagem: ', mlp.alpha)
 
 # mlp.loss curve
 
@@ -56,18 +56,22 @@ plt.show()
 from sklearn.metrics import accuracy_score
 
 predictions_train = mlp.predict(train_data)
-print(accuracy_score(predictions_train, train_labels))
+print('\nAcurácia dos dados de treino: ', accuracy_score(predictions_train, train_labels))
 predictions_test = mlp.predict(test_data)
-print(accuracy_score(predictions_test, test_labels))
+print('Acurácia dos dados de teste: ', accuracy_score(predictions_test, test_labels))
+
+print('\nPrevisões sobre os dados de treino: \n', predictions_train)
+print('Previsões sobre os dados de teste: \n', predictions_test)
 
 from sklearn.metrics import confusion_matrix
 
 conf_treino = confusion_matrix(predictions_train, train_labels)
-print(conf_treino)
+print('\nMatriz de confusão dos dados de treino: \n', conf_treino)
 
 conf_test = confusion_matrix(predictions_test, test_labels)
-print(conf_test)
+print('Matriz de confusão dos dados de teste: \n', conf_test)
 
 from sklearn.metrics import classification_report
 
-print(classification_report(predictions_test, test_labels))
+print('\nRelatório de classificação dos dados de treino: \n\n', classification_report(predictions_train, train_labels))
+print('Relatório de classificação dos dados de teste: \n\n', classification_report(predictions_test, test_labels))
